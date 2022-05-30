@@ -12,6 +12,9 @@ public class PostRequestDto {
     @JsonProperty("phone_number") // "얘는 snake case 로 phone_number 라는 json property 를 가질 것이다"
     private String phoneNumber; // <- Camel case, Snake case -> phone_number;
 
+    @JsonProperty("OTP")
+    private String OTP;
+
     public String getPhoneNumber() {
         return phoneNumber;
     }
@@ -60,6 +63,7 @@ public class PostRequestDto {
                 ", address='" + address + '\'' +
                 ", password='" + password + '\'' +
                 ", phoneNumber='" + phoneNumber + '\'' +
+                ", OTP='" + OTP + '\'' +
                 '}';
     }
 }
