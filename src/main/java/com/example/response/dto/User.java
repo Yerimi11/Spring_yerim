@@ -1,13 +1,16 @@
 package com.example.response.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
 
 @JsonNaming(value = PropertyNamingStrategy.SnakeCaseStrategy.class)
+@JsonInclude(JsonInclude.Include.NON_NULL) // Null 값은 안나오게 함
 public class User {
     private String name;
-    private int age;
+    private Integer age; // int 는 디폴트 값이 0, Integer 는 null
 
 //    @JsonProperty("phone_number")
     private String phoneNumber;
@@ -21,7 +24,7 @@ public class User {
         this.name = name;
     }
 
-    public int getAge() {
+    public Integer getAge() {
         return age;
     }
 
