@@ -38,6 +38,20 @@ public class WishListRepositoryTest {
     }
 
     @Test
+    public void updateTest(){
+        var wishListEntity = create();
+        var expected = wishListRepository.save(wishListEntity);
+
+        expected.setTitle("update test");
+        var saveEntity = wishListRepository.save(expected);
+
+        Assertions.assertEquals("update test", saveEntity.getTitle());
+        Assertions.assertEquals(1, wishListRepository.listAll().size());
+
+
+    }
+
+    @Test
     public void findByIdTest(){
         var wishListEntity = create();
         wishListRepository.save(wishListEntity);
@@ -63,6 +77,13 @@ public class WishListRepositoryTest {
 
     @Test
     public void listAllTest(){
+        var wishListEntity1 = create();
+        wishListRepository.save(wishListEntity1);
 
+        var wishListEntity2 = create();
+        wishListRepository.save(wishListEntity2);
+
+        int count = wishListRepository.listAll().size();
+        Assertions.assertEquals(2, count);
     }
 }
