@@ -12,6 +12,7 @@
 ---
 
 ### 구현내용
+- 
 - 네이버 검색 api(지역, 이미지)와 연동해 지역의 식당 정보를 불러온 후, 그 식당의 이미지 정보를 받아옴
 <img width="880" alt="image" src="https://user-images.githubusercontent.com/93559998/172011445-14cc65a3-b331-47c5-9a9b-428c36d3133b.png">
 
