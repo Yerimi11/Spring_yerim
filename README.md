@@ -6,7 +6,7 @@
 ---
 
 ### 실행 방법
-1. RestaurantApplication.java -> main run ▶️
+1. RestaurantApplication.java -> run ▶️
 2. http://localhost:8080/pages/main 접속
 
 ---
