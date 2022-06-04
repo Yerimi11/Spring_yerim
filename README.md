@@ -28,7 +28,7 @@
 ---
 
 ### 기술스택
-**JAVA Springboot, Vue.js**
+- **Springboot, Vue.js**
 - 프론트는 간단한 부트스트랩을 사용하여 모바일 화면에서도 사용 가능
 
 ---
