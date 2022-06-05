@@ -23,7 +23,7 @@
 ---
 
 ### Memory CRUD DB 개발
-- REST API로 구현
+- ArrayList를 활용해 DB처럼 동작하도록 구현
 - http://localhost:8080/swagger-ui/ 에 접속하여 확인 가능
 
 ---
