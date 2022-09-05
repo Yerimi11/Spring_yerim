@@ -26,33 +26,28 @@ public class WishListService {
         var searchLocalRes = naverClient.searchLocal(searchLocalReq);
 
         if (searchLocalRes.getTotal() > 0) {
-//            var localItem = searchLocalRes.getItems().stream().findFirst().get(); // 첫번째 아이템을 꺼냄
-            int i;
-            for (i=0; i<11; i++) {
-                var localItem = searchLocalRes.getItems().get(i);
-                var imageQuery = localItem.getTitle().replaceAll("<[^>]*>", "");
-                var searchImageReq = new SearchImageReq();
-                searchImageReq.setQuery(imageQuery);
+            var localItem = searchLocalRes.getItems().stream().findFirst().get();
+            var imageQuery = localItem.getTitle().replaceAll("<[^>]*>", "");
+            var searchImageReq = new SearchImageReq();
+            searchImageReq.setQuery(imageQuery);
 
-                // 이미지 검색
-                var searchImageRes = naverClient.searchImage(searchImageReq);
+            // 이미지 검색
+            var searchImageRes = naverClient.searchImage(searchImageReq);
 
-                if (searchImageRes.getTotal() > 0) {
-                    var imageItem = searchImageRes.getItems().stream().findFirst().get();
-                    // 결과를 리턴
-                    var result = new WishListDto();
-                    result.setTitle(localItem.getTitle().replaceAll("<[^>]*>", ""));
-                    result.setCategory(localItem.getCategory());
-                    result.setAddress(localItem.getAddress());
-                    result.setRoadAddress(localItem.getRoadAddress());
-                    result.setHomePageLink(localItem.getLink());
-                    result.setImageLink(imageItem.getLink());
-
-                    return result;
-                }
+            if (searchImageRes.getTotal() > 0) {
+                var imageItem = searchImageRes.getItems().stream().findFirst().get();
+                // 결과를 리턴
+                var result = new WishListDto();
+                result.setTitle(localItem.getTitle().replaceAll("<[^>]*>", ""));
+                result.setCategory(localItem.getCategory());
+                result.setAddress(localItem.getAddress());
+                result.setRoadAddress(localItem.getRoadAddress());
+                result.setHomePageLink(localItem.getLink());
+                result.setImageLink(imageItem.getLink());
+                return result;
             }
         }
-        return new WishListDto(); // 아무것도 없으면 빈 리스트 생성
+        return new WishListDto();
     }
 
     public WishListDto add(WishListDto wishListDto) {
